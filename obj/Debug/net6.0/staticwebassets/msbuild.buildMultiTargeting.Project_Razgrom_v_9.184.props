@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Project_Razgrom_v_9.184.props" />
+</Project>
