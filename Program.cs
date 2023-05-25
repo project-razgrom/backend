@@ -17,16 +17,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opts =>
 {
-    opts.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please enter a valid token",
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        BearerFormat = "JWT",
-        Scheme = "Bearer",
+//    opts.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+//    {
+//        In = ParameterLocation.Header,
+//        Description = "Please enter a valid token",
+//        Name = "Authorization",
+//        Type = SecuritySchemeType.Http,
+//        BearerFormat = "JWT",
+//        Scheme = "Bearer",
         
-    });
+//    });
 
 });
 
@@ -38,22 +38,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IUsersRepository, UserRepository>();
 builder.Services.AddScoped<IRolesRepository, RolesRepository>();
 builder.Services.AddScoped<IBannersRepository, BannerRepository>();
+builder.Services.AddScoped<ILinkersRepository, LinkerRepository>();
+builder.Services.AddScoped<ICommentsRepository, CommentRepository>();
+builder.Services.AddScoped<IRollsRepository, RollRepository>();
 builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = "apiWithAuthBackend",
-            ValidAudience = "apiWithAuthBackend",
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes("!SomethingSecret!")
-            ),
-        };
-    });
+    .AddAuthentication();
+builder.Services.AddScoped<IItemsRepository, ItemRepository>();
+builder.Services.AddTransient<GameAdminService>();
+
+    
 builder.Services.AddAuthorization();
 var app = builder.Build();
 
@@ -67,43 +60,20 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("authorized-endpoint", [Authorize] () => "asdkjdsakljelrw");
-app.MapPost("reg", async (CreateUserDto dto, IUsersRepository repo, HttpContext x) =>
-{
-    var newUser = await repo.Create(dto);
-    var expiration = DateTime.UtcNow.AddMinutes(120);
-    var creds = new SigningCredentials(
-                new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes("!SomethingSecret!")
-                ),
-                SecurityAlgorithms.HmacSha256
-            );
-    var claims = new List<Claim>
-                {
-                    new Claim(JwtRegisteredClaimNames.Sub, "TokenForTheApiWithAuth"),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)),
-                    new Claim(ClaimTypes.NameIdentifier, newUser.Id.ToString()),
-                    new Claim(ClaimTypes.Name, newUser.Username),
-                    new Claim(ClaimTypes.Email, newUser.Email)
-                };
-    var token = new JwtSecurityToken(
-                "apiWithAuthBackend",
-                "apiWithAuthBackend",
-                claims,
-                expires: expiration,
-                signingCredentials: creds
-            );
-    var tokenHandler = new JwtSecurityTokenHandler();
-    return tokenHandler.WriteToken(token);
-});
+
 app.MapPost("login", async () =>
 {
     return Task.CompletedTask;
 });
 
-app.Run();
-internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
+app.MapPost("registr", async (CreateUserDto dto) =>
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+    return Task.CompletedTask;
+});
+
+app.MapPost("get_gacha", async () =>
+{
+    return Task.CompletedTask;
+});
+app.Run();
+

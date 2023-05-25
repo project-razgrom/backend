@@ -9,5 +9,6 @@ namespace Project_Razgrom_v_9._184
     }
     public interface ILinkersRepository : IBaseRepository<Linker, CreateLinkerDto>
     {
+        public Task<List<Linker>> GetByBanner(Banners banners);
     }
 }

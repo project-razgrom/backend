@@ -19,6 +19,13 @@ namespace Project_Razgrom_v_9._184
             await context.SaveChangesAsync();
             return newItem ?? throw new NullReferenceException();
         }
+
+        public async Task<List<Items>> GetAllFromStandard()
+        {
+            return await context.Set<Items>().Where(item => item.IsInStandard).ToListAsync();
+
+        }
+
         public override async Task<Items> Update(Items entity)
         {
             // Получаем ссылку на объект, который хотим изменить

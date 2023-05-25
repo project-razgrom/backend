@@ -10,5 +10,7 @@ namespace Project_Razgrom_v_9._184
     }
     public interface IItemsRepository : IBaseRepository<Items, CreateItemDto>
     {
-    }
+        public Task<List<Items>> GetAllFromStandard();
+    };
+
 }

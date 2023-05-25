@@ -18,6 +18,12 @@ namespace Project_Razgrom_v_9._184
             await context.SaveChangesAsync();
             return newLinker ?? throw new NullReferenceException();
         }
+
+        public async Task<List<Linker>> GetByBanner(Banners banners)
+        {
+            return await context.Set<Linker>().Where(link => link.Banner.Id==banners.Id).ToListAsync();
+        }
+
         public override async Task<Linker> Update(Linker entity)
         {
             // Получаем ссылку на объект, который хотим изменить
