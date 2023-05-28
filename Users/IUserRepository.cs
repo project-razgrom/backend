@@ -14,7 +14,16 @@ namespace Project_Razgrom_v_9._184
         public string Username { get; set; } = string.Empty;
 
     }
-        public interface IUsersRepository : IBaseRepository<Users, CreateUserDto>
+    public class LoginDto
+    { 
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+        [Required, MinLength(6)]
+        public string Password { get; set; } = string.Empty;
+
+    }
+    public interface IUsersRepository : IBaseRepository<Users, CreateUserDto>
     {
+        public Task<Users> GetByLoginInfo(string password, string name);
     }
 }

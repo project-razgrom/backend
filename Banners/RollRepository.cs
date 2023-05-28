@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Project_Razgrom_v_9._184;
 using Project_Razgrom_v_9._184.Shared;
+using System.Reflection;
 
 namespace Project_Razgrom_v_9._184
 {
@@ -45,8 +47,25 @@ namespace Project_Razgrom_v_9._184
         }
         public async Task<Rolls> GetLastRollOfUser(Users user, Banners banners)
         {
-            return await context.Set<Rolls>().LastOrDefaultAsync(roll => 
+            return await context.Set<Rolls>().LastOrDefaultAsync(roll =>
                 roll.User.Id == user.Id && roll.Banners.Id == banners.Id);
+        }
+
+        public async Task<List<Rolls>> GetBannerHistory(Banners banners)
+        {
+            return await context.Set<Rolls>().OrderByDescending(roll => roll.Time)
+                .Where(roll => roll.Banners.Id == banners.Id).Take(10).ToListAsync();
+        }
+
+        public async Task<List<Rolls>> GetLastRolls(int count = 10)
+        {
+            return await context.Set<Rolls>().OrderByDescending(roll => roll.Time).Take(count).ToListAsync();
+        }
+
+        public async Task<List<Rolls>> GetUserHistory(Users user, int limit = 15)
+        {
+            return await context.Set<Rolls>().OrderByDescending(roll => roll.Time)
+                .Where(roll => roll.User.Id == user.Id).Take(limit).ToListAsync();
         }
     }
 }

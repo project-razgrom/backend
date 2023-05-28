@@ -22,6 +22,12 @@ namespace Project_Razgrom_v_9._184
             return newUser ?? throw new NullReferenceException();
         }
 
+        public async Task<Users> GetByLoginInfo(string password, string name)
+        {
+            return await context.Set<Users>().FirstOrDefaultAsync(user =>
+            user.Email == name && user.Password == password);
+        }
+
         public override async Task<Users> Update(Users entity)
         {
             // Получаем ссылку на объект, который хотим изменить

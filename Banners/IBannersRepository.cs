@@ -1,4 +1,5 @@
-﻿using Project_Razgrom_v_9._184.Shared;
+﻿using Microsoft.AspNetCore.SignalR;
+using Project_Razgrom_v_9._184.Shared;
 
 namespace Project_Razgrom_v_9._184
 {
@@ -12,5 +13,6 @@ namespace Project_Razgrom_v_9._184
     }
     public interface IBannersRepository : IBaseRepository<Banners, CreateBannerDto>
     {
+        public Task<List<Banners>> GetByTimeEnd (DateTime date);
     }
 }

@@ -21,6 +21,12 @@ namespace Project_Razgrom_v_9._184
             await context.SaveChangesAsync();
             return newBanner ?? throw new NullReferenceException();
         }
+
+        public async Task<List<Banners>> GetByTimeEnd(DateTime date)
+        {
+            return await context.Set<Banners>().Where(baner => baner.TimeEnd > date).ToListAsync();
+        }
+
         public override async Task<Banners> Update(Banners entity)
         {
             // Получаем ссылку на объект, который хотим изменить
