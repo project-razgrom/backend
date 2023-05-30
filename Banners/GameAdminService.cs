@@ -36,7 +36,7 @@
             {
                 1 => Rarity.Legendary,
                 <= 30 => Rarity.Epic,
-                _ => Rarity.Rare
+                _ => Rarity.Epic
             };
             if (counter >= MAX_GACHA_COUNT)
             {
@@ -93,6 +93,7 @@
             
             var _items = await _itemsRepository.GetAllFromStandard();
             var items = _items.Where(item => item.Type==rarity).ToList();
+            var inx = rng.Next(0, items.Count - 1);
             var itemFromStandard = items[rng.Next(0, items.Count - 1)]
                 ?? items[0]
                 ?? throw new IndexOutOfRangeException();

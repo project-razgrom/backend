@@ -25,7 +25,7 @@ namespace Project_Razgrom_v_9._184
         public async Task<Users> GetByLoginInfo(string password, string name)
         {
             return await context.Set<Users>().FirstOrDefaultAsync(user =>
-            user.Email == name && user.Password == password);
+            user.Email.Contains(name) && user.Password.Contains(password));
         }
 
         public override async Task<Users> Update(Users entity)

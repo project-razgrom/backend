@@ -1,0 +1,39 @@
+dotnet ef migrations add ИМЯ
+dotnet ef database update
+
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('004b9b86-b65a-45be-9b62-ead8c35e2ae2',	'Тома'          ,4,	'thoma.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('0d26a455-22a6-4c94-802b-46d8a5e18edc',	'Диона'	        ,4,	'diona.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('0efb5cba-3bcd-4af4-b84f-8dee64ceee9a',	'Куки Синобу)'	,4,	'kuki.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('1dc3f22d-dc68-4952-856d-c0d30a28279c',	'Ци Ци'	        ,5, 'qiqi.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('2b198bcf-bff1-481d-8517-4f073145f905',	'Беннетт'	    ,4,	'bennett.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('2f32f823-c8c2-4d90-9fbf-b75feeee86e6',	'Бэй Доу'	    ,5,	'baidou.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('388a65ea-66b9-4ada-9fca-69e503007b1f',	'Шэнь Хэ'	    ,5,	'shenhe.svg',	    false);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('4af1ef27-501c-4da4-bc07-ab96e07cf304',	'Барбара'	    ,4,	'barbara.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('6412c92f-86fe-489a-aaf4-3ece36de0f1d',	'Яо Яо'	        ,4,	'yao-yao.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('65ebe2af-9970-4522-8796-90fb164905b9',	'Дори)'	        ,4,	'dori.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('6fbfd99e-84fe-42fd-ac06-d043e308f734',	'База'	        ,4,	'noelle.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('750264fe-75e7-4d8b-8e78-0ce3cb2185d2',	'Юнь Цзынь'	    ,4,	'yun-tszin.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('79391a39-8938-410f-8293-974011c045e3',	'Рэйзор'	    ,4,	'razor.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('7c59323a-9dde-4c07-be5b-f7894dade4c9',	'Син Цю'	    ,4,	'xingqiu.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('821b5ce7-2bdf-41ec-bd1e-463e2793271b',	'Сахароза'	    ,4,	'sucrose.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('8e94e0a1-8ef1-4a67-91f6-6e37b46e67c2',	'Лайла'	        ,4,	'layla.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('98720951-1e87-4d1b-8bfa-f01d5fe6f1d9',	'Хацуне Мику'	,4,	'mika.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('a5e61b96-7192-4c95-94a0-9c646736944c',	'Нин Гуан'	    ,4,	'ningguang.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('add90cf7-588b-4172-9947-ce2d67728917',	'Розария'	    ,4,	'rosaria.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('ae4575f4-9eb4-41e8-9dad-bb893945e74f',	'Сара'	        ,4,	'sara.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('b84f34fd-2636-46d9-ad3b-53391090bd0d',	'Кэ Цин'	    ,5,	'keqing.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('bd1336d3-ea51-490d-a537-6cc857c33ef9',	'Мона'	        ,5,	'mona.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('bf4fcc34-b335-4732-88f9-1376d40e3e9a',	'Фурри'	        ,4,	'gorou.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('c07a0dd5-e3d6-410b-86c3-7b646ef82a6a',	'Кандида'	    ,4,	'candace.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('c883779f-67f8-45fc-a867-94ae2549e934',	'Фишля'	        ,4,	'fischl.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('d2b0c340-d65f-442f-9afb-4f1e4481af24',	'Янь Фэй'	    ,4,	'feiyan.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('d3578b89-374a-471b-ac46-83feb84f26bc',	'Синь Янь'	    ,4,	'xinyan.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('d4143be5-4150-4531-9a59-d65f9556cbb3',	'Джинн'	        ,5,	'jean.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('db5bc4cd-8e58-48ec-8d66-3214a16ecea2',	'Саю)'	        ,4,	'sayu.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('dc7cd139-669d-4e97-8da7-f3afe4644d9f',	'Фарузан'	    ,4,	'faruzan.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('ddf5b778-49e2-45b5-b672-4be194e4a807',	'Дилюк'	        ,5,	'diluc.svg',	        true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('e6163837-037c-4fbe-a8c3-abeb2d7d80fe',	'Хэйдзоу'	    ,4,	'heizou.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('f6116022-e52b-4760-83fe-e4a3b0c6307e',	'Тигран'	    ,5,	'tighnari.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('f71b0fde-0390-48ba-943b-3b35728f6c25',	'Коллеи'	    ,4,	'collei.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('fa49a791-9f57-418f-8add-e0e5efd46045',	'Чунь Юнь'	    ,4,	'chongyun.svg',	    true);
+INSERT INTO public."Items"("Id", "Name", "Type", "Image", "IsInStandard") VALUES ('fedc79a7-9c2b-4655-bb62-6466d9a45b0f',	'Сян Лин'	    ,4,	'xiangling.svg',	    true);

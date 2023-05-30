@@ -4,8 +4,8 @@ namespace Project_Razgrom_v_9._184
 {
     public class CreateLinkerDto
     {
-        public Banners Banner { get; set; }
-        public Items Item { get; set; }
+        public Guid Banner { get; set; }
+        public Guid Item { get; set; }
     }
     public interface ILinkersRepository : IBaseRepository<Linker, CreateLinkerDto>
     {

@@ -7,6 +7,7 @@ namespace Project_Razgrom_v_9._184
         public string Name { get; set; } = string.Empty;
         public Rarity Type { get; set; }
         public string Image { get; set; } = string.Empty;
+        public bool IsStandard { get; set; } = false;
     }
     public interface IItemsRepository : IBaseRepository<Items, CreateItemDto>
     {

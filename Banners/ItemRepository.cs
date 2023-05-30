@@ -13,7 +13,8 @@ namespace Project_Razgrom_v_9._184
                 Name = entity.Name,
                 Type = entity.Type,
                 Image = entity.Image,
-                Id = new Guid()
+                Id = new Guid(),
+                IsInStandard = entity.IsStandard
             };
             await context.AddAsync(newItem);
             await context.SaveChangesAsync();

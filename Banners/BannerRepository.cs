@@ -8,12 +8,14 @@ namespace Project_Razgrom_v_9._184
         public BannerRepository(AppDbContext context) : base(context) { }
         public override async Task<Banners> Create(CreateBannerDto entity)
         {
+            entity.TimeStart.ToUniversalTime();
+
             var newBanner = new Banners()
             {
                 Name = entity.Name,
                 Type = entity.Type,
-                TimeStart = DateTime.Now,
-                TimeEnd = DateTime.Now,
+                TimeStart = entity.TimeStart.ToUniversalTime(),
+                TimeEnd = entity.TimeEnd.ToUniversalTime(),
                 ImagePath= entity.ImagePath,
                 Id = new Guid()
             };

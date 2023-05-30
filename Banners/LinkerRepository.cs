@@ -8,10 +8,20 @@ namespace Project_Razgrom_v_9._184
         public LinkerRepository(AppDbContext context) : base(context) { }
         public override async Task<Linker> Create(CreateLinkerDto entity)
         {
+            var banner = await context.Set<Banners>()
+                .FirstOrDefaultAsync(ban => ban.Id == entity.Banner);
+            var item = await context.Set<Items>()
+                .FirstOrDefaultAsync(it => it.Id == entity.Item);
+
+            if (banner == null || item == null) 
+            { 
+                throw new ArgumentException("Banner or item id is not found");
+            }
+
             var newLinker = new Linker()
             {
-                Banner = entity.Banner,
-                Item = entity.Item,
+                Banner = banner,
+                Item = item,
                 Id = new Guid()
             };
             await context.AddAsync(newLinker);
@@ -21,7 +31,11 @@ namespace Project_Razgrom_v_9._184
 
         public async Task<List<Linker>> GetByBanner(Banners banners)
         {
-            return await context.Set<Linker>().Where(link => link.Banner.Id==banners.Id).ToListAsync();
+            var list = await context.Set<Linker>()
+                .Where(link => link.Banner.Id == banners.Id)
+                .ToListAsync();
+
+            return list;
         }
 
         public override async Task<Linker> Update(Linker entity)

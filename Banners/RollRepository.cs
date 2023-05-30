@@ -15,7 +15,7 @@ namespace Project_Razgrom_v_9._184
                 Counter = entity.Counter,
                 User = entity.User,
                 Banners = entity.Banners,
-                Time = entity.Time,
+                Time = entity.Time.ToUniversalTime(),
                 Item = entity.Item,
                 Id = new Guid()
             };
@@ -45,10 +45,11 @@ namespace Project_Razgrom_v_9._184
             // Опционально: возвращаем измененный объект
             return candidate;
         }
-        public async Task<Rolls> GetLastRollOfUser(Users user, Banners banners)
+        public async Task<Rolls?> GetLastRollOfUser(Users user, Banners banners)
         {
-            return await context.Set<Rolls>().LastOrDefaultAsync(roll =>
+            var res = await context.Set<Rolls>().OrderBy(el => el.Time).LastOrDefaultAsync(roll =>
                 roll.User.Id == user.Id && roll.Banners.Id == banners.Id);
+            return res ?? null;
         }
 
         public async Task<List<Rolls>> GetBannerHistory(Banners banners)
